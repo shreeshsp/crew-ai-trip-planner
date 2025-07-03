@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "trip-planner-yt"
+name = "ai-trip-planner"
 version = "0.1.0"
 description = "Simple ai trip planner"
-authors = ["Joao Moura, Brandon Hancock"]
+authors = ["Joao Moura, Shreesh Patil"]
 
 [tool.poetry.dependencies]
 python = ">=3.10.0,<3.12"
