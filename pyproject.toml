@@ -1,16 +1,18 @@
 [tool.poetry]
-name = "ai-trip-planner"
+name = "trip-planner-yt"
 version = "0.1.0"
 description = "Simple ai trip planner"
-authors = ["Joao Moura, Shreesh Patil"]
+authors = ["Joao Moura, Brandon Hancock"]
 
 [tool.poetry.dependencies]
 python = ">=3.10.0,<3.12"
-crewai = "0.1.24"
+crewai = {extras = ["tools"], version = "^0.22.5"}
 unstructured = '==0.10.25'
 pyowm = '3.3.0'
 python-dotenv = "1.0.0"
 langchain-openai = "^0.0.5"
+crewai-tools = "^0.0.15"
+langchain-groq = "^0.0.1"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md

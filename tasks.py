@@ -67,6 +67,7 @@ class TravelTasks:
             **Note**: {self.__tip_section()}
         """
             ),
+            expected_output='A full 7-day travel itinerary with detailed per-day plans, including weather forecasts, places to eat, packing suggestions',
             agent=agent,
         )
 
@@ -92,6 +93,7 @@ class TravelTasks:
                     **Note**: {self.__tip_section()}
         """
             ),
+            expected_output='a detailed report on the chosen city, including actual flight costs, weather forecast, and attractions.',
             agent=agent,
         )
 
@@ -113,5 +115,6 @@ class TravelTasks:
                     **Note**: {self.__tip_section()}
         """
             ),
+            expected_output='In-depth guide for the selected city, gathering information about key attractions, local customs, special events, and daily activity recommendations.',
             agent=agent,
         )

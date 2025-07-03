@@ -1,6 +1,8 @@
 from crewai import Agent
 from textwrap import dedent
 from langchain_openai import ChatOpenAI
+import os
+from langchain_groq import ChatGroq
 
 from tools.search_tools import SearchTools
 from tools.calculator_tools import CalculatorTools
@@ -36,8 +38,9 @@ Notes:
 class TravelAgents:
     def __init__(self):
         self.OpenAIGPT35 = ChatOpenAI(
-            model_name="gpt-3.5-turbo", temperature=0.7)
+            model_name="gpt-4o-mini", temperature=0.7)
         self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+        self.llm = ChatGroq(temperature=0, groq_api_key=os.getenv("GROQ_API_KEY"), model_name="llama-3.1-8b-instant")
 
     def expert_travel_agent(self):
         return Agent(
@@ -54,7 +57,8 @@ class TravelAgents:
                 CalculatorTools.calculate
             ],
             verbose=True,
-            llm=self.OpenAIGPT4,
+            llm=self.llm,
+            # llm=self.OpenAIGPT35,
         )
 
     def city_selection_expert(self):
@@ -66,7 +70,8 @@ class TravelAgents:
                 f"""Select the best cities based on weather, season, prices, and traveler interests"""),
             tools=[SearchTools.search_internet],
             verbose=True,
-            llm=self.OpenAIGPT4,
+            llm=self.llm,
+            # llm=self.OpenAIGPT35,
         )
 
     def local_tour_guide(self):
@@ -78,5 +83,6 @@ class TravelAgents:
                 f"""Provide the BEST insights about the selected city"""),
             tools=[SearchTools.search_internet],
             verbose=True,
-            llm=self.OpenAIGPT4,
+            llm=self.llm,
+            # llm=self.OpenAIGPT35,
         )
